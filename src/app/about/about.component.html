@@ -1,11 +1,5 @@
-<div class="card flex justify-content-center">
+<div class="card">
     <p-card header="Jacob's Bio" subheader="About Me">
-        <ng-template pTemplate="header">
-            <img alt="Card" src="assets/images/hiking.png" />
-        </ng-template>
-        <p>{{bioContent}}</p>
-        <ng-template pTemplate="footer">
-            <p-button label="export"icon="pi pi-file-pdf" label="Export Resume" (click)="downloadPdf()"></p-button>
-        </ng-template>
+        <pre class="pre-wrap">{{bioContent}}</pre>
     </p-card>
 </div>

@@ -1,43 +1,32 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+// src/app/about/about.component.ts
 import { Component, OnInit } from '@angular/core';
+import { HttpClientCoreModule } from '../core/http-client.module';
+import { FileService } from '../services/file.service';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [HttpClientModule, ButtonModule, CardModule],
+  imports: [
+    HttpClientCoreModule,
+    ButtonModule,
+    CardModule
+  ],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrls: ['./about.component.css'],
+  providers: [FileService]
 })
 export class AboutComponent implements OnInit {
-  //Variables
   bioContent: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private fileService: FileService) {}
 
-
-  //Initalize
-  ngOnInit(){
-    this.loadTextFile();  
-  }
-
-  loadTextFile(): void {
-    this.http.get('assets/files/bio.txt', { responseType: 'text' })
-      .subscribe({
-        next: (data) => {
-          this.bioContent = data;
-        },
-        error: (error) => {
-          console.error('Failed to load text file:', error);
-        }
-      });
-  }
-
-  downloadPdf(): void {
-    const link = document.createElement('a');
-    link.href = 'assets/files/jacob-resume.pdf';
-    link.download = 'JacobsResume.pdf';
-    link.click();
+  ngOnInit() {
+    this.fileService.loadTextFile('assets/files/bio.txt').subscribe({
+      next: data => this.bioContent = data,
+      error: error => console.error('There was an error loading the file', error),
+      complete: () => console.log('File loading complete')
+    });
   }
 }

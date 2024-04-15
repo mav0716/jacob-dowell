@@ -1,6 +1,23 @@
 .card {
-    background: var(--surface-card);
-    padding: 2rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+::ng-deep .p-card .p-card-content{
+    padding: unset;
+}
+
+::ng-deep .p-card .p-card-subtitle{
+    color: black;
+    margin-bottom: 0px;
+}
+
+.pre-wrap {
+    white-space: pre-wrap; 
+    overflow-wrap: break-word; 
+    max-width: 100%; 
+    border-radius: 5px; 
+    overflow-x: auto; 
 }

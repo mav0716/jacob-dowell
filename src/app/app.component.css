@@ -1,0 +1,61 @@
+::ng-deep .p-tabmenu .p-tabmenu-nav{
+    background: none;
+    border:none;
+    padding: 10px;
+    margin: 10px;
+    justify-content: flex-end;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
+    color: black; /* Dark grey text color */
+    padding: 20px ;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight a {
+    border-radius: 8px 8px 0 0;
+    border-bottom: solid 2px;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+    border: none;
+    background: none;
+}
+
+.custom-tabmenu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border-bottom: 3px solid;
+    border-radius: 10px 10px 0 0;
+}
+
+.custom-tabmenu .p-tabmenu {
+    flex-grow: 1;
+    margin-left: 20px; /* Provides some space between the h2 and the tabs */
+}
+
+.tab-title {
+    margin-right: auto; /* Ensures the title stays on the left */
+}
+
+.card-footer {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    z-index: 1000; 
+}
+
+::ng-deep .p-button{
+    margin-right: 10px;
+}
+
+.resAction {
+    margin-right: 10px; /* Adjust the value to get the desired spacing */
+}
