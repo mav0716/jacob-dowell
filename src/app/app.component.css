@@ -62,7 +62,17 @@
 
 @media (max-width: 768px) {
     .card-footer {
-        padding: 10px 10px; /* Reduced side padding for smaller screens */
-        justify-content: center; /* Center items if there's not enough space */
+        justify-content: space-between; /* Changes alignment to spread out items */
+        padding: 10px; /* Reduces padding to fit content better on small screens */
+    }
+
+    .resAction {
+        flex-grow: 1; /* Allows the 'Resume' header to take more space if needed */
+        text-align: left; /* Aligns text to the left to balance visibility */
+        margin-right: 5px; /* Reduces margin to save space */
+    }
+
+    ::ng-deep .p-button {
+        margin-right: 5px; /* Reduces margin to prevent overflow */
     }
 }
