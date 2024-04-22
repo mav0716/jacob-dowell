@@ -59,3 +59,10 @@
 .resAction {
     margin-right: 10px; /* Adjust the value to get the desired spacing */
 }
+
+@media (max-width: 768px) {
+    .card-footer {
+        padding: 10px 10px; /* Reduced side padding for smaller screens */
+        justify-content: center; /* Center items if there's not enough space */
+    }
+}
