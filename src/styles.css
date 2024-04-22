@@ -27,9 +27,6 @@ body {
         padding: 20px;
         margin: 10px;
     }
-}
-
-@media (max-width: 600px) {
     .custom-tabmenu {
         flex-direction: column;
         padding: 5px;
@@ -44,15 +41,21 @@ body {
     }
 
     .card-footer {
-        flex-direction: column;
-        align-items: stretch; /* Makes sure elements take full width */
+        justify-content: space-between; /* Changes alignment to spread out items */
+        padding: 10px; /* Reduces padding to fit content better on small screens */
+    }
+
+    .resAction {
+        flex-grow: 1; /* Allows the 'Resume' header to take more space if needed */
+        text-align: left; /* Aligns text to the left to balance visibility */
+        margin-right: 5px; /* Reduces margin to save space */
+    }
+
+    ::ng-deep .p-button {
+        margin-right: 5px; /* Reduces margin to prevent overflow */
     }
 
     ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
         padding: 10px;
-    }
-
-    .resAction, ::ng-deep .p-button {
-        margin-right: 5px;
     }
 }

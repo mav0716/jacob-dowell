@@ -59,20 +59,3 @@
 .resAction {
     margin-right: 10px; /* Adjust the value to get the desired spacing */
 }
-
-@media (max-width: 768px) {
-    .card-footer {
-        justify-content: space-between; /* Changes alignment to spread out items */
-        padding: 10px; /* Reduces padding to fit content better on small screens */
-    }
-
-    .resAction {
-        flex-grow: 1; /* Allows the 'Resume' header to take more space if needed */
-        text-align: left; /* Aligns text to the left to balance visibility */
-        margin-right: 5px; /* Reduces margin to save space */
-    }
-
-    ::ng-deep .p-button {
-        margin-right: 5px; /* Reduces margin to prevent overflow */
-    }
-}
