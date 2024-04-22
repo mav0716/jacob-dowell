@@ -17,3 +17,42 @@ body {
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    .p-card {
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .custom-tabmenu {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    .custom-tabmenu .p-tabmenu {
+        margin-left: 0;
+    }
+
+    .tab-title {
+        margin-bottom: 10px; /* Push the tabs below the title */
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: stretch; /* Makes sure elements take full width */
+    }
+
+    ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
+        padding: 10px;
+    }
+
+    .resAction, ::ng-deep .p-button {
+        margin-right: 5px;
+    }
+}
