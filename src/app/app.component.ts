@@ -1,43 +1,40 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
-import { RouterModule } from '@angular/router';
 import { HttpClientCoreModule } from './core/http-client.module';
 import { ButtonModule } from 'primeng/button';
 import { FileService } from './services/file.service';
 import { TooltipModule } from 'primeng/tooltip';
 import { ToolbarModule } from 'primeng/toolbar';
 
-
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
+    styleUrls: ['./app.component.css'], // Corrected from styleUrl to styleUrls
     imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule, ToolbarModule ],
     providers: [FileService]
 })
 export class AppComponent implements AfterViewInit {
-    @ViewChild('mainContent') mainContent?: ElementRef<HTMLDivElement>;
-    @ViewChild('footer') footer?: ElementRef<HTMLDivElement>;
-    downloadLabel: string = '';
-    viewLabel: string = '';
+    @ViewChild('mainContent') mainContent?: ElementRef;
+    @ViewChild('footer') footer?: ElementRef;
     title = 'Jacob Dowell';
-    tempTitle = 'Under Construction';
-    items: MenuItem[] | undefined;
-    activeItem: MenuItem | undefined;
+    items?: MenuItem[];
+    activeItem?: MenuItem;
 
     constructor(private fileService: FileService) {}
-      
-    ngAfterViewInit() {
+
+    ngAfterViewInit(): void {
         this.adjustContentPadding();
-        if (typeof window !== 'undefined') {
-            window.addEventListener('resize', () => this.adjustContentPadding());
-        }
     }
-        
-      adjustContentPadding() {
+
+    @HostListener('window:resize')
+    onResize() {
+        this.adjustContentPadding();
+    }
+
+    adjustContentPadding(): void {
         if (this.footer && this.mainContent) {
           const footerHeight = this.footer.nativeElement.offsetHeight;
           this.mainContent.nativeElement.style.paddingBottom = `${footerHeight}px`;
@@ -58,7 +55,7 @@ export class AppComponent implements AfterViewInit {
         this.fileService.downloadPdf();
     }
 
-    viewPDF(){
+    viewPDF() {
         window.open('assets/files/jacob-resume.pdf', '_blank');
     }
 }
