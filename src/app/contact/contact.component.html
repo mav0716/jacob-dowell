@@ -1,3 +1,25 @@
-<div style="text-align: center;">
-    <img src="assets/images/under-construction.png" alt="Under Construction" style="width: 50%;">
-</div>
+<div class="p-d-flex p-jc-center p-ai-center">
+    <p-card>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid">
+          <div class="p-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" pInputText formControlName="email">
+            <small class="p-error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+              Please enter a valid email address.
+            </small>
+          </div>
+          <div class="p-field">
+            <label for="subject">Subject</label>
+            <input id="subject" type="text" pInputText formControlName="subject">
+          </div>
+          <div class="p-field">
+            <label for="message">Message</label>
+            <textarea id="message" pInputTextarea formControlName="message" rows="5"></textarea>
+          </div>
+          <p-button pButton type="submit" label="Send" [disabled]="!contactForm.valid"></p-button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+  

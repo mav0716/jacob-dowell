@@ -1,0 +1,79 @@
+/* Styles to position the card at the top center of the page */
+.p-d-flex.p-jc-center.p-ai-center {
+    position: relative;
+    top: 10px; /* Starts 10px below the top of the viewport */
+    width: 100%; /* Full width to maintain centering */
+    display: flex;
+    justify-content: center; /* Align horizontally center */
+    padding: 20px; /* Padding to ensure it doesn't touch the viewport edges */
+  }
+  
+  p-card {
+    width: 100%;
+    max-width: 1000px; /* Maximum width of the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visibility */
+    padding: 20px; /* Padding inside the card */
+    border-radius: 8px; /* Optional: rounded corners */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    p-card {
+      margin: 10px; /* Smaller margin on smaller screens */
+      max-width: 90%; /* Make the card wider on smaller screens */
+    }
+  }
+  
+  /* Styles for form elements */
+  .p-fluid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .p-field {
+    margin-bottom: 16px; /* Space between form fields */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%; /* Full width elements within the card */
+    padding: 8px; /* Padding for input and textarea for better readability */
+    border: 1px solid #ccc; /* Border to distinguish the boundaries */
+    border-radius: 4px; /* Rounded corners for inputs and textarea */
+  }
+  
+  textarea {
+    resize: vertical; /* Allows the textarea to be resized only vertically */
+  }
+  
+  label {
+    margin-bottom: 4px; /* Space between label and input/textarea */
+    display: block; /* Ensure the label is on top of inputs/textarea */
+  }
+  
+  /* Button styling */
+  p-button {
+    display: block; /* Make the button take the full width */
+    width: 100%;
+  }
+  
+  button {
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px 15px; /* Padding inside the button */
+    background-color: #007bff; /* Background color of the button */
+    color: white; /* Text color for the button */
+    border: none; /* No border for the button */
+    border-radius: 4px; /* Rounded corners for the button */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+  button:disabled {
+    background-color: #ccc; /* Disabled state */
+    cursor: not-allowed; /* Cursor for disabled state */
+  }
+  

@@ -7,6 +7,7 @@ import { HttpClientCoreModule } from './core/http-client.module';
 import { ButtonModule } from 'primeng/button';
 import { FileService } from './services/file.service';
 import { TooltipModule } from 'primeng/tooltip';
+import { ToolbarModule } from 'primeng/toolbar';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { TooltipModule } from 'primeng/tooltip';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule ],
+    imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule, ToolbarModule ],
     providers: [FileService]
 })
 export class AppComponent {
