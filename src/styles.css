@@ -40,21 +40,6 @@ body {
         margin-bottom: 10px; /* Push the tabs below the title */
     }
 
-    .card-footer {
-        justify-content: space-between; /* Changes alignment to spread out items */
-        padding: 10px; /* Reduces padding to fit content better on small screens */
-    }
-
-    .resAction {
-        flex-grow: 1; /* Allows the 'Resume' header to take more space if needed */
-        text-align: left; /* Aligns text to the left to balance visibility */
-        margin-right: 5px; /* Reduces margin to save space */
-    }
-
-    ::ng-deep .p-button {
-        margin-right: 5px; /* Reduces margin to prevent overflow */
-    }
-
     ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
         padding: 10px;
     }
