@@ -21,6 +21,10 @@
     background: none;
 }
 
+.content-area {
+    padding-bottom: 80px; /* Adjust this to at least the height of your footer */
+}
+
 .custom-tabmenu {
     display: flex;
     justify-content: space-between;
@@ -72,6 +76,18 @@
 @media (max-width: 480px) {
     .card-footer {
         justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-area {
+        padding-bottom: 80px; /* You might increase this if necessary */
+    }
+}
+
+@media (max-width: 480px) {
+    .content-area {
+        padding-bottom: 60px; /* Adjust based on footer size on very small devices */
     }
 }
 

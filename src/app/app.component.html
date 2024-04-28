@@ -3,10 +3,13 @@
     <h2>{{title}}</h2>
     <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
   </div>
-  <router-outlet></router-outlet>
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 <div class="card-footer">
     <h3 class="resAction">Resume</h3>
     <p-button icon="pi pi-download" (click)="downloadPdf()" pTooltip="Download Resume" tooltipPosition="top"></p-button>
     <p-button icon="pi pi-file-pdf" (click)="viewPDF()" pTooltip="View Resume" tooltipPosition="top"></p-button>
 </div>
+
