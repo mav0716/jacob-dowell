@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
@@ -18,15 +18,31 @@ import { ToolbarModule } from 'primeng/toolbar';
     imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule, ToolbarModule ],
     providers: [FileService]
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
+    @ViewChild('mainContent') mainContent?: ElementRef<HTMLDivElement>;
+    @ViewChild('footer') footer?: ElementRef<HTMLDivElement>;
     downloadLabel: string = '';
     viewLabel: string = '';
-    constructor(private fileService: FileService) {}
     title = 'Jacob Dowell';
     tempTitle = 'Under Construction';
-
     items: MenuItem[] | undefined;
     activeItem: MenuItem | undefined;
+
+    constructor(private fileService: FileService) {}
+      
+    ngAfterViewInit() {
+        this.adjustContentPadding();
+        if (typeof window !== 'undefined') {
+            window.addEventListener('resize', () => this.adjustContentPadding());
+        }
+    }
+        
+      adjustContentPadding() {
+        if (this.footer && this.mainContent) {
+          const footerHeight = this.footer.nativeElement.offsetHeight;
+          this.mainContent.nativeElement.style.paddingBottom = `${footerHeight}px`;
+        }
+    }
 
     ngOnInit() {
         this.items = [
