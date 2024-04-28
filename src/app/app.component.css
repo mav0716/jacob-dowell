@@ -56,6 +56,39 @@
     margin-right: 10px;
 }
 
-.resAction {
-    margin-right: 10px; /* Adjust the value to get the desired spacing */
+
+@media (max-width: 480px) {
+    .card-footer {
+        flex-direction: column; /* Stack elements if the screen is too small */
+        align-items: flex-end; /* Align items to the end */
+        padding: 10px 10px;
+    }
+
+    .resAction, .p-button {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 5px; /* Space between stacked elements */
+    }
+}
+
+@media (max-width: 768px) {
+    .card-footer {
+        padding: 10px 10px; /* Reduced padding */
+        font-size: 12px; /* Smaller font size for contents in the footer */
+    }
+
+    .content-area {
+        padding-bottom: 60px; /* Ensure this value is sufficient to cover the footer height */
+    }
+}
+
+/* Footer layout adjustments */
+.resAction, .p-button {
+    white-space: nowrap; /* Prevents wrapping of elements */
+    margin-right: 10px; /* Consistent margin for alignment */
+}
+
+/* Ensuring buttons and text are on the same line */
+.card-footer h3, .card-footer p-button {
+    display: inline-flex; /* Inline flex to keep elements in line */
+    align-items: center; /* Align items vertically */
 }
