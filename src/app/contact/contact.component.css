@@ -1,6 +1,5 @@
 /* Styles to position the card at the top center of the page */
 .p-d-flex.p-jc-center.p-ai-center {
-    position: relative;
     top: 10px; /* Starts 10px below the top of the viewport */
     width: 100%; /* Full width to maintain centering */
     display: flex;

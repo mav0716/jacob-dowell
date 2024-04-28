@@ -1,45 +1,26 @@
-import { AfterViewInit, Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { RouterOutlet, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuItem } from 'primeng/api';
+import { RouterModule } from '@angular/router';
 import { HttpClientCoreModule } from './core/http-client.module';
 import { ButtonModule } from 'primeng/button';
 import { FileService } from './services/file.service';
 import { TooltipModule } from 'primeng/tooltip';
-import { ToolbarModule } from 'primeng/toolbar';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'], // Corrected from styleUrl to styleUrls
-    imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule, ToolbarModule ],
+    styleUrl: './app.component.css',
+    imports: [RouterOutlet, RouterModule, TabMenuModule, HttpClientCoreModule, ButtonModule, TooltipModule ],
     providers: [FileService]
 })
-export class AppComponent implements AfterViewInit {
-    @ViewChild('mainContent') mainContent?: ElementRef;
-    @ViewChild('footer') footer?: ElementRef;
-    title = 'Jacob Dowell';
-    items?: MenuItem[];
-    activeItem?: MenuItem;
-
+export class AppComponent implements OnInit {
     constructor(private fileService: FileService) {}
-
-    ngAfterViewInit(): void {
-        this.adjustContentPadding();
-    }
-
-    @HostListener('window:resize')
-    onResize() {
-        this.adjustContentPadding();
-    }
-
-    adjustContentPadding(): void {
-        if (this.footer && this.mainContent) {
-          const footerHeight = this.footer.nativeElement.offsetHeight;
-          this.mainContent.nativeElement.style.paddingBottom = `${footerHeight}px`;
-        }
-    }
+    title = 'Jacob Dowell';
+    items: MenuItem[] | undefined;
+    activeItem: MenuItem | undefined;
 
     ngOnInit() {
         this.items = [
@@ -55,7 +36,10 @@ export class AppComponent implements AfterViewInit {
         this.fileService.downloadPdf();
     }
 
-    viewPDF() {
+    viewPDF(){
         window.open('assets/files/jacob-resume.pdf', '_blank');
     }
+
+    navigateToLinkedIn() {
+        window.open('https://www.linkedin.com/in/jacob-dowell/', '_blank');    }
 }

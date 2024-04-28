@@ -1,15 +1,14 @@
-<div class="main-content" #mainContent>
-  <div class="gradient-black-background">
-    <div class="card custom-tabmenu">
-      <h2>{{ title }}</h2>
-      <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
-    </div>
-    <router-outlet></router-outlet>
+<div class="gradient-black-background">
+  <div class="card custom-tabmenu">
+    <h2>{{title}}</h2>
+    <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
   </div>
-</div>
-
-<div class="card-footer" #footer>
-  <h3 class="resAction">Resume</h3>
-  <p-button icon="pi pi-download" (click)="downloadPdf()" pTooltip="Download Resume" tooltipPosition="top"></p-button>
-  <p-button icon="pi pi-file-pdf" (click)="viewPDF()" pTooltip="View Resume" tooltipPosition="top"></p-button>
+  <router-outlet></router-outlet>
+  <div class="card-footer">
+      <h3 class="resAction">Resume</h3>
+      <p-button icon="pi pi-download" (click)="downloadPdf()" pTooltip="Download Resume" tooltipPosition="top"></p-button>
+      <p-button icon="pi pi-file-pdf" (click)="viewPDF()" pTooltip="View Resume" tooltipPosition="top"></p-button>
+      <h3 class="resAction">Linkedin</h3>
+      <p-button icon="pi pi-linkedin" (click)="navigateToLinkedIn()" pTooltip="Navigate to Linkedin" tooltipPosition="top"></p-button>
+  </div>
 </div>

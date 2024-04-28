@@ -1,19 +1,14 @@
-.card {
+p-card {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;          /* Enables flexbox layout */
     justify-content: center; /* Horizontally centers the child elements */
     margin-top: 10px;        /* Adjusts the top margin to space it below any top bar or boundary */
-    width: 100%;             /* Ensures it spans the full width to center the content properly */
-    padding: 20px;           /* Padding inside the card for content spacing */
-}
-
-p-card {
-    max-width: 1500px;       /* Maximum width of the card */
-    width: 100%;             /* Makes the card responsive, adjusting to the width of its container */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: Adds subtle shadow for better visual separation */
-    padding: 20px;           /* Padding inside the card for content spacing */
+    width: 75%;             /* Sets the width to 75% of its parent container */
+    padding: 20px;
+    margin-left: auto;      /* These two margin settings */
+    margin-right: auto;     /* Center the card horizontally */
 }
 
 ::ng-deep .p-card .p-card-content{
