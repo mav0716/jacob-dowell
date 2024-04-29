@@ -64,5 +64,4 @@
 ::ng-deep .p-button {
     margin-right: 10px;
     flex-shrink: 0; /* Prevents buttons from shrinking */
-    background-color: #0d89ec;
 }
