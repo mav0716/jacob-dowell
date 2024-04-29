@@ -61,7 +61,7 @@
     padding-right: 10px;
 }
 
-::ng-deep .p-button {
-    margin-right: 10px;
+.btn {
+    margin-right: 10px !important;
     flex-shrink: 0; /* Prevents buttons from shrinking */
 }
