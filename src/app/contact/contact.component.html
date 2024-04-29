@@ -24,7 +24,9 @@
             <label for="message">Message</label>
             <textarea id="message" pInputTextarea formControlName="message" rows="5"></textarea>
           </div>
-          <p-button pButton type="submit" label="Send" [disabled]="!contactForm.valid"></p-button>
+          <div class="button-container">
+            <p-button class="small-button" pButton type="submit" label="Send" [disabled]="!contactForm.valid"></p-button>
+          </div>
         </div>
       </form>
     </p-card>

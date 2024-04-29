@@ -40,9 +40,6 @@
     padding: 8px; /* Padding for input and textarea for better readability */
     border: 1px solid #ccc; /* Border to distinguish the boundaries */
     border-radius: 4px; /* Rounded corners for inputs and textarea */
-  }
-  
-  textarea {
     resize: vertical; /* Allows the textarea to be resized only vertically */
   }
   
@@ -54,7 +51,8 @@
   /* Button styling */
   p-button {
     display: block; /* Make the button take the full width */
-    width: 100%;
+    width: 12%;
+    margin-right: 0% !important; 
   }
   
   button {
@@ -65,6 +63,17 @@
     border: none; /* No border for the button */
     border-radius: 4px; /* Rounded corners for the button */
     transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+
+  .button-container {
+    margin-top: auto; /* Pushes the button container to the bottom of the form */
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+  }
+
+  :host ::ng-deep .small-button .p-button {
+    font-size: 0.8rem !important;
+    padding: 0.1rem !important;
   }
   
   button:hover {
