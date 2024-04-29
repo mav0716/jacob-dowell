@@ -76,3 +76,20 @@
     cursor: not-allowed; /* Cursor for disabled state */
   }
   
+  .spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: for dimming the background */
+    z-index: 9999; /* Make sure it's on top of other content */
+  }
+
+  ::ng-deep .p-progress-spinner-circle {
+    stroke: #0056b3; /* Set your desired color */
+    animation: p-progress-spinner-dash 1.5s ease-in-out infinite !important;
+  }

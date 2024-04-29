@@ -1,3 +1,9 @@
+<div class="card">
+  <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+</div>
+<div class="spinner-overlay" *ngIf="showSpinner" >
+  <p-progressSpinner strokeWidth="4" ariaLabel="loading"></p-progressSpinner>
+</div>
 <div class="container">
   <div class="p-d-flex p-jc-center p-ai-center">
     <p-card>
