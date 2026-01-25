@@ -1,14 +1,112 @@
-::ng-deep .p-card .p-card-subtitle{
-    color: black;
-    margin-bottom: 0px;
-    font-size: large;
+.home {
+    display: flex;
+    flex: 1;
 }
 
-.resAction{
-    margin: 10px;
-
+.home-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(20px, 3vw, 32px);
+    align-items: center;
+    padding: clamp(20px, 4vh, 32px);
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
 }
 
-.hikingImg{
-    border-radius: 8px 8px 0 0;
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hero-title {
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-card {
+    padding: 16px 18px;
+}
+
+.hero-card-title {
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.hero-list {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+}
+
+.hero-media {
+    position: relative;
+}
+
+.hero-image {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: float 6s ease-in-out infinite;
+    max-height: 280px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.hero-side {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.highlight-stack {
+    display: grid;
+    gap: 12px;
+}
+
+.highlight-card {
+    padding: 14px 16px;
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.highlight-card h3 {
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .home-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-height: 760px) {
+    .home-grid {
+        padding: 20px;
+    }
+
+    .hero-image {
+        max-height: 220px;
+    }
 }

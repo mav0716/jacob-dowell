@@ -1,29 +1,26 @@
-p-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;          /* Enables flexbox layout */
-    justify-content: center; /* Horizontally centers the child elements */
-    margin-top: 10px;        /* Adjusts the top margin to space it below any top bar or boundary */
-    width: 75%;             /* Sets the width to 75% of its parent container */
-    padding: 20px;
-    margin-left: auto;      /* These two margin settings */
-    margin-right: auto;     /* Center the card horizontally */
+.about {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-::ng-deep .p-card .p-card-content{
-    padding: unset;
+.about-intro {
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-::ng-deep .p-card .p-card-subtitle{
-    color: black;
-    margin-bottom: 0px;
+.about-card {
+    padding: 28px;
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.pre-wrap {
-    white-space: pre-wrap; 
-    overflow-wrap: break-word; 
-    max-width: 100%; 
-    border-radius: 5px; 
-    overflow-x: auto; 
+@media (max-width: 600px) {
+    .about-card {
+        padding: 22px;
+    }
 }

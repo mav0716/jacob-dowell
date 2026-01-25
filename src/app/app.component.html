@@ -1,14 +1,38 @@
-<div class="gradient-black-background">
-  <div class="card custom-tabmenu">
-    <h2>{{title}}</h2>
-    <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
-  </div>
-  <router-outlet></router-outlet>
-  <div class="card-footer">
-      <h3 class="resAction">Resume</h3>
-      <p-button class="btn" icon="pi pi-download" (click)="downloadPdf()" pTooltip="Download Resume" tooltipPosition="top"></p-button>
-      <p-button class="btn" icon="pi pi-file-pdf" (click)="viewPDF()" pTooltip="View Resume" tooltipPosition="top"></p-button>
-      <h3 class="resAction">Linkedin</h3>
-      <p-button class="btn" icon="pi pi-linkedin" (click)="navigateToLinkedIn()" pTooltip="Navigate to Linkedin" tooltipPosition="top"></p-button>
-  </div>
+<div class="site">
+  <header class="site-header animate-in">
+    <div class="brand">
+      <span class="brand-mark">JD</span>
+      <div>
+        <h1 class="brand-title">{{ title }}</h1>
+        <p class="brand-subtitle">Engineering Leader • Technical Architect • Army Veteran</p>
+      </div>
+    </div>
+    <nav class="site-nav" aria-label="Primary">
+      <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div class="footer-copy">
+      </div>
+      <div class="footer-actions">
+        <div class="footer-group">
+          <span class="footer-label">Resume</span>
+          <div class="footer-buttons">
+            <p-button label="Download" icon="pi pi-download" (click)="downloadPdf()"></p-button>
+            <p-button class="button-ghost" label="View" icon="pi pi-file-pdf" (click)="viewPDF()"></p-button>
+          </div>
+        </div>
+        <div class="footer-group">
+          <span class="footer-label">LinkedIn</span>
+          <p-button class="button-ghost" label="Connect" icon="pi pi-linkedin" (click)="navigateToLinkedIn()"></p-button>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>

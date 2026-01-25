@@ -1,19 +1,81 @@
-::ng-deep .p-tabmenu .p-tabmenu-nav{
-    background: none;
-    border: none;
-    padding: 10px;
-    margin: 10px;
+.site {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-header {
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 28px 24px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: var(--accent);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.brand-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin: 0;
+}
+
+.brand-subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.site-nav {
+    flex: 1;
+    display: flex;
     justify-content: flex-end;
 }
 
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav {
+    background: transparent;
+    border: none;
+    gap: 8px;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
+    margin: 0;
+}
+
 :host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem a {
-    color: black; /* Dark grey text color */
-    padding: 20px;
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    border: 1px solid transparent;
+    transition: background 0.2s ease, border 0.2s ease, color 0.2s ease;
 }
 
 :host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight a {
-    border-radius: 8px 8px 0 0;
-    border-bottom: solid 2px;
+    background: rgba(15, 118, 110, 0.12);
+    color: var(--accent-strong);
+    border-color: rgba(15, 118, 110, 0.25);
 }
 
 :host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
@@ -21,47 +83,73 @@
     background: none;
 }
 
-.content-area {
-    padding-bottom: 80px; /* Adjust this to at least the height of your footer */
+.site-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-.custom-tabmenu {
+.site-main > * {
+    width: 100%;
+    flex: 1;
+}
+
+.site-footer {
+    margin-top: 32px;
+    background: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid var(--line);
+    padding: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.site-footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    margin: 10px;
-    border-bottom: 3px solid;
-    border-radius: 10px 10px 0 0;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
-.custom-tabmenu .p-tabmenu {
-    flex-grow: 1;
-    margin-left: 20px;
+.footer-copy {
+    max-width: 360px;
 }
 
-.tab-title {
-    margin-right: auto;
-}
-
-.card-footer {
+.footer-actions {
     display: flex;
-    justify-content: flex-end; /* Aligns content to the right */
-    align-items: center; /* Centers items vertically */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    position: fixed;
-    background: linear-gradient(to right, rgb(235, 233, 233), #e7e6e6);
-    padding: 10px 20px; /* Add some padding for visual appearance */
-    z-index: 100; /* Make sure it's above other content */
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.resAction {
-    padding-right: 10px;
+.footer-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.btn {
-    margin-right: 10px !important;
-    flex-shrink: 0; /* Prevents buttons from shrinking */
+.footer-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-label {
+    font-weight: 600;
+    color: var(--ink);
+}
+
+@media (max-width: 900px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .site-nav {
+        justify-content: flex-start;
+        width: 100%;
+    }
 }

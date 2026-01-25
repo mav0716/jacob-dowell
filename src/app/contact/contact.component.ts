@@ -1,28 +1,35 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
+import { finalize } from 'rxjs';
 import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
-import { ReactiveFormsModule } from '@angular/forms'; 
-import { EmailService } from '../services/email.service';
-import { Message } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { MessagesModule } from 'primeng/messages';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-
+import { Message } from 'primeng/api';
+import { EmailService } from '../services/email.service';
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, InputTextModule, ButtonModule, CardModule, ReactiveFormsModule, MessagesModule, ProgressSpinnerModule],
-  providers: [EmailService],
+  imports: [
+    CommonModule,
+    InputTextModule,
+    InputTextareaModule,
+    ButtonModule,
+    ReactiveFormsModule,
+    MessagesModule,
+    ProgressSpinnerModule
+  ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
 export class ContactComponent implements OnInit {
   contactForm!: FormGroup;
   messages: Message[] = [];
-  showSpinner: boolean = false;
+  showSpinner = false;
 
   constructor(private formBuilder: FormBuilder, private emailService: EmailService) {}
 
@@ -35,31 +42,36 @@ export class ContactComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.contactForm.valid) {
+      this.setMessages('warn', 'Missing details', 'Please fill out all fields before sending.');
+      return;
+    }
+
     this.showSpinner = true;
-    if (this.contactForm.valid) {
-      this.emailService.sendEmail(this.contactForm.value).subscribe({
+    this.emailService
+      .sendEmail(this.contactForm.value)
+      .pipe(finalize(() => (this.showSpinner = false)))
+      .subscribe({
         next: response => {
           console.log('Email sent successfully!', response);
-          this.messages = [{ severity: 'success', summary: 'Success', detail: 'Email sent successfully!' }];
-          setTimeout(() => {
-            this.messages = []; 
-          }, 15000); 
+          this.setMessages('success', 'Success', 'Email sent successfully!');
           this.contactForm.reset();
-          this.showSpinner = false;
         },
         error: error => {
           console.log('Error sending email', error);
-          this.messages = [{ severity: 'error', summary: 'Error', detail: 'Failed to send email. Please try again.' }];
-          setTimeout(() => {
-            this.messages = []; 
-          }, 15000); 
-          this.showSpinner = false;
+          this.setMessages('error', 'Error', 'Failed to send email. Please try again.');
         }
       });
-    }  
   }
 
   get email() {
     return this.contactForm.get('email');
+  }
+
+  private setMessages(severity: 'success' | 'error' | 'warn', summary: string, detail: string) {
+    this.messages = [{ severity, summary, detail }];
+    setTimeout(() => {
+      this.messages = [];
+    }, 15000);
   }
 }

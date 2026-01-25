@@ -1,5 +1,14 @@
-<div class="container">
-    <p-card header="Jacob's Bio" subheader="About Me">
-        <pre class="pre-wrap">{{bioContent}}</pre>
-    </p-card>
-</div>
+<section class="page about">
+  <div class="about-intro animate-in">
+    <p class="eyebrow">About</p>
+    <h2 class="section-title">Jacob's Bio</h2>
+    <p class="lead">
+      A concise overview of my background, experience, and focus.
+    </p>
+  </div>
+
+  <div class="about-card surface animate-in delay-1">
+    <p *ngFor="let paragraph of bioParagraphs">{{ paragraph }}</p>
+    <p *ngIf="bioParagraphs.length === 0">Loading bio...</p>
+  </div>
+</section>

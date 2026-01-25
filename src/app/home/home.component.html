@@ -1,10 +1,32 @@
-<div class="container">
-    <div class="container">
-        <p-card header="I am Jacob Dowell " subheader="Software Engineer">
-            <ng-template pTemplate="header">
-                <img class="coding" alt="Card" src="assets/images/coding.png" />
-            </ng-template>
-            <p>{{shortBio}}</p>
-        </p-card>
+<section class="page home">
+  <div class="home-grid animate-in">
+    <div class="hero-content">
+      <p class="eyebrow">Full-Stack Engineer</p>
+      <h2 class="hero-title">I'm Jacob Dowell.</h2>
+      <p class="lead">{{ shortBio }}</p>
+      <div class="hero-actions">
+        <button pButton type="button" label="Start a conversation" icon="pi pi-envelope" routerLink="/contact"></button>
+        <button pButton type="button" class="button-ghost" label="Read my story" icon="pi pi-user" routerLink="/about"></button>
+      </div>
+      <div class="hero-card surface">
+        <p class="hero-card-title">What I care about</p>
+        <ul class="hero-list">
+          <li *ngFor="let focus of focusAreas">{{ focus }}</li>
+        </ul>
+      </div>
     </div>
-</div> 
+
+    <div class="hero-side">
+      <div class="hero-media animate-in delay-1">
+        <img class="hero-image" src="assets/images/coding.png" alt="Illustration of a coding workspace">
+      </div>
+      <div class="highlight-stack animate-in delay-2">
+        <div class="highlight-card" *ngFor="let highlight of highlights">
+          <h3>{{ highlight.title }}</h3>
+          <p>{{ highlight.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

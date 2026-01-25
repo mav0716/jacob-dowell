@@ -1,32 +1,28 @@
-// src/app/about/about.component.ts
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { HttpClientCoreModule } from '../core/http-client.module';
 import { FileService } from '../services/file.service';
-import { ButtonModule } from 'primeng/button';
-import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [
-    HttpClientCoreModule,
-    ButtonModule,
-    CardModule
-  ],
+  imports: [CommonModule],
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css'],
-  providers: [FileService]
+  styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  bioContent: string = '';
+  bioParagraphs: string[] = [];
 
   constructor(private fileService: FileService) {}
 
   ngOnInit() {
     this.fileService.loadTextFile('assets/files/bio.txt').subscribe({
-      next: data => this.bioContent = data,
-      error: error => console.error('There was an error loading the file', error),
-      complete: () => console.log('File loading complete')
+      next: data => {
+        this.bioParagraphs = data
+          .split(/\n\s*\n/)
+          .map(paragraph => paragraph.trim())
+          .filter(Boolean);
+      },
+      error: error => console.error('There was an error loading the file', error)
     });
   }
 }

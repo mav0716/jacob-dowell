@@ -1,35 +1,71 @@
-<div class="card">
-  <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
-</div>
-<div class="spinner-overlay" *ngIf="showSpinner" >
-  <p-progressSpinner strokeWidth="4" ariaLabel="loading"></p-progressSpinner>
-</div>
-<div class="container">
-  <div class="p-d-flex p-jc-center p-ai-center">
-    <p-card>
-      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <div class="p-fluid">
+<section class="page contact">
+  <div class="contact-intro animate-in">
+    <p class="eyebrow">Contact</p>
+    <h2 class="section-title">Recruiting or collaboration, I'd love to hear from you.</h2>
+    <p class="lead">If you want to talk roles, projects, or just connect, share a few details and I will respond quickly.</p>
+  </div>
+
+  <div class="messages" aria-live="polite">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-panel surface animate-in delay-1">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-grid">
           <div class="p-field">
             <label for="email">Email</label>
-            <input id="email" type="email" pInputText formControlName="email">
-            <small class="p-error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+            <input id="email" type="email" pInputText formControlName="email" autocomplete="email" placeholder="Please enter your email" required>
+            <small class="field-error" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
               Please enter a valid email address.
             </small>
           </div>
           <div class="p-field">
             <label for="subject">Subject</label>
-            <input id="subject" type="text" pInputText formControlName="subject">
+            <input id="subject" type="text" pInputText formControlName="subject" autocomplete="off" placeholder="Please enter a subject" required>
+            <small class="field-error" *ngIf="contactForm.get('subject')?.invalid && (contactForm.get('subject')?.dirty || contactForm.get('subject')?.touched)">
+              Please add a short subject.
+            </small>
           </div>
           <div class="p-field">
             <label for="message">Message</label>
-            <textarea id="message" pInputTextarea formControlName="message" rows="5"></textarea>
+            <textarea id="message" pInputTextarea formControlName="message" rows="5" placeholder="Please enter your message" required></textarea>
+            <small class="field-error" *ngIf="contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
+              Please include a quick message.
+            </small>
           </div>
         </div>
         <div class="form-footer">
-          <p-button class="small-button" type="submit" label="Send" [disabled]="!contactForm.valid"></p-button>
-        </div>      
+          <p-button type="submit" label="Send message" [disabled]="!contactForm.valid"></p-button>
+        </div>
       </form>
-    </p-card>
+    </div>
+
+    <aside class="contact-aside animate-in delay-2">
+      <div class="aside-card surface">
+        <h3>Hiring? Include</h3>
+        <ul>
+          <li>Role title and location</li>
+          <li>Comp range and timeline</li>
+          <li>Tech stack and team size</li>
+        </ul>
+      </div>
+      <div class="aside-card surface">
+        <h3>Collaboration? Include</h3>
+        <ul>
+          <li>Project goals and scope</li>
+          <li>Timeline or deadlines</li>
+          <li>Links or references</li>
+        </ul>
+      </div>
+      <div class="aside-card surface">
+        <h3>Preferred contact</h3>
+        <p>Email is best for detailed requests. You can also connect on LinkedIn using the link at the bottom of this page.</p>
+      </div>
+    </aside>
   </div>
+</section>
+
+<div class="spinner-overlay" *ngIf="showSpinner">
+  <p-progressSpinner strokeWidth="4" ariaLabel="loading"></p-progressSpinner>
 </div>
-  

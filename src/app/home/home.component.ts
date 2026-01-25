@@ -1,24 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import { CardModule } from 'primeng/card';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { PanelModule } from 'primeng/panel';
-import { FileService } from '../services/file.service';
-import { HttpClientCoreModule } from '../core/http-client.module';
+
+interface Highlight {
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CardModule, ButtonModule, PanelModule, HttpClientCoreModule],
+  imports: [CommonModule, RouterModule, ButtonModule],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  providers: [FileService]
+  styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
-  shortBio: any;
+export class HomeComponent {
+  shortBio =
+    'Hands-on full-stack engineering lead with 7+ years at Charles Schwab, modernizing regulated financial platforms with a focus on velocity, risk management, and reliability.';
 
-  constructor(private fileService : FileService) {}
+  focusAreas = [
+    'Enterprise modernization and cloud transformation',
+    'AI-assisted delivery, data-informed decisions, and measurable impact',
+    'Leadership, mentorship, and strong cross-functional partnerships'
+  ];
 
-  ngOnInit(): void {
-    this.shortBio = "I am a seasoned software engineer with six years of professional experience, specializing in developing robust web applications."
-  }
+  highlights: Highlight[] = [
+    {
+      title: 'What I build',
+      description: 'Scalable, compliant financial products powered by resilient APIs and cloud-native systems.'
+    },
+    {
+      title: 'How I work',
+      description: 'I lead from the front: align teams, remove blockers, and keep delivery calm and focused.'
+    },
+    {
+      title: 'What you can expect',
+      description: 'Clear communication, influential leadership, and dependable outcomes.'
+    }
+  ];
 }
