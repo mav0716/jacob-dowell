@@ -1,6 +1,6 @@
 I’m Jacob Dowell, a software engineer with a foundation built on discipline, leadership, and adaptability from my four years of active duty in the United States Army. My military service gave me the unique privilege of traveling the world, representing our country as an ambassador, and learning to work seamlessly with people from diverse backgrounds. These experiences strengthened my ability to collaborate, think strategically, and stay calm under pressure — skills I carry into every professional challenge.
 
-Long before my engineering career, years of competitive training taught me grit, focus, and the value of steady preparation. That mindset shows up in how I build software and lead teams: consistent, intentional, and accountable.
+Long before my engineering career, years of competitive wrestling training taught me grit, focus, and the value of steady preparation. That mindset shows up in how I build software and lead teams: consistent, intentional, and accountable.
 
 After completing my service, I earned a degree in Computer Information Systems, where I discovered my passion for software development — particularly in building modern, user-focused web applications that balance intuitive UX/UI design with technical precision. During my studies, I also served as a CIS department tutor, mentoring students through programming fundamentals and helping them gain confidence in their technical abilities.
 
